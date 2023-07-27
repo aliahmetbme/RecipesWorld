@@ -18,7 +18,7 @@ const Variaites = ({route, navigation}) => {
   }
 
 
-  function renderData({item}) {return (<MealsCard navigaiton={navigation}item={item}></MealsCard>)}
+  function renderData({item}) {return (<MealsCard navigation={navigation}item={item}></MealsCard>)}
   return (
     <View style={{flex:1,backgroundColor:"#494949"}}>
       <FlatList data={data.meals} renderItem={renderData}></FlatList>
