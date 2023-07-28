@@ -1,6 +1,7 @@
 import { View, Text, Alert, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import React from 'react'
 import {Formik} from 'formik';
+import auth from '@react-native-firebase/auth';
 
 import GoogleButton from '../Components/GoogleButton';
 import Input from '../Components/Input'
@@ -12,12 +13,29 @@ const Login = () => {
     password : ""
   }
 
-  function Login(formValues){
+  async function Login(formValues){
+    try {
     if (formValues.email === "" || formValues.password==="") {
       Alert.alert("WARN", "YOU CANNOT GIVE EMPTY VALUES")
       return
     }
     console.log("password: " , formValues.password, " email: ", formValues.email)
+    await auth().signInWithEmailAndPassword(
+      formValues.email,
+      formValues.password,
+    )   
+  } catch (error) {
+    if (error.code === 'auth/email-already-in-use') {
+      console.log('That email address is already in use!');
+    }
+
+    if (error.code === 'auth/invalid-email') {
+      console.log('That email address is invalid!');
+    }
+
+    console.log(error);
+    }
+
   }
 
 

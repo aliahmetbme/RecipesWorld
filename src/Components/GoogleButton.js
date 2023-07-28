@@ -1,40 +1,40 @@
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native'
 import React from 'react'
-// import { GoogleSignin } from '@react-native-google-signin/google-signin'
-// import auth from "@react-native-firebase/auth"
-// import database from "@react-native-firebase/database"
+import { GoogleSignin } from '@react-native-google-signin/google-signin'
+import auth from "@react-native-firebase/auth"
 
-// GoogleSignin.configure({
-//     webClientId: '',
-//   });
+GoogleSignin.configure({
+    webClientId: '512190792821-c1pesc33vpucm1m1dqo0v2pljs3mttb2.apps.googleusercontent.com',
+  });
 
-// signOut = async () => {
-//     try {
-//       await GoogleSignin.signOut();
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
+signOut = async () => {
+    try {
+      await GoogleSignin.signOut();
+    } catch (error) {
+      console.error(error);
+    }
+  };
  const GoogleButton = ({navigation}) => {
    
-//     async function signIn()  {
-//         await onGoogleButtonPress()
+    async function signIn()  {
+        await onGoogleButtonPress()
+        console.log("successfull")
 
-//         database()
-//         .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}`)
-//         .once("value", snapshot => {
-//             if (snapshot.exists()) {
-//                 console.log("Kullanıcı daha önce kayıtlı.");
-//                // navigation.navigate("")
-//               } else {
-//                 console.log("Kullanıcı daha önce kayıtlı değil.");
-//                // navigation.navigate("")
-//               }
-//         })
-//     }
+        // database()
+        // .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}`)
+        // .once("value", snapshot => {
+        //     if (snapshot.exists()) {
+        //         console.log("Kullanıcı daha önce kayıtlı.");
+        //        // navigation.navigate("")
+        //       } else {
+        //         console.log("Kullanıcı daha önce kayıtlı değil.");
+        //        // navigation.navigate("")
+        //       }
+        // })
+    }
 
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={signIn} style={styles.container}>
         <Image style={styles.Image}source={require("../Assest/google.png")}></Image>
         <Text style={styles.ButtonText}>Use Google Account</Text>
     </TouchableOpacity>
@@ -43,22 +43,22 @@ import React from 'react'
 
 
 
-// async function onGoogleButtonPress() {
-//     try
-//     {// Check if your device supports Google Play
-//     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
-//     // Get the users ID token
-//     const { idToken } = await GoogleSignin.signIn();
+async function onGoogleButtonPress() {
+    try
+    {// Check if your device supports Google Play
+    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    // Get the users ID token
+    const { idToken } = await GoogleSignin.signIn();
   
-//     // Create a Google credential with the token
-//     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-//     // Sign-in the user with the credential
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    // Sign-in the user with the credential
 
-//     return auth().signInWithCredential(googleCredential);
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+    return auth().signInWithCredential(googleCredential);
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 export default GoogleButton

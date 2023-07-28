@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "512190792821",
+    "project_id": "recipesworld-d5db7",
+    "storage_bucket": "recipesworld-d5db7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512190792821:android:f651f2ddc38b74997fe43c",
+        "android_client_info": {
+          "package_name": "com.tarifikaa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "512190792821-p5lgn945rbqtnfispc40n7om3c77eof0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tarifikaa",
+            "certificate_hash": "c538c782aea25bd3fbd92b249199cb5ceee60306"
+          }
+        },
+        {
+          "client_id": "512190792821-uika60q5ni28ej6vldl9e4d8douhusiv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tarifikaa",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "512190792821-c1pesc33vpucm1m1dqo0v2pljs3mttb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG9nCUnC-tNugVKkatkMyld0ErKn8OLXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "512190792821-c1pesc33vpucm1m1dqo0v2pljs3mttb2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

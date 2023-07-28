@@ -4,8 +4,8 @@ import Config from 'react-native-config';
 import useFetch from '../Hooks/useFetch';
 import Loading from '../Components/Loading';
 import YouTubeButton from '../Components/YouTubeButton';
-import Share from "../Hooks/Share"
-import Icon from "react-native-vector-icons/FontAwesome"
+import Share from "../Hooks/Share";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 
 const Details = ({route, navigation}) => {
@@ -27,6 +27,7 @@ const Details = ({route, navigation}) => {
     return <Text>Bir hata oluştu.</Text>;
   }
 
+  // malzemeleri ölçüleriyle birlikte belirliyor
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
     const measure = meals[`strMeasure${i}`];
@@ -48,6 +49,7 @@ const Details = ({route, navigation}) => {
     })
   }
 
+  // Taglari mapliyor
   meals.strTags ? renderTags = meals.strTags.split(",").map((item, index) =>{
     return(
       <View key={index} style={{flexWrap:"wrap",flexDirection: 'row',}}>
@@ -66,7 +68,7 @@ const Details = ({route, navigation}) => {
           <View style={{flexDirection:"row", padding:5, justifyContent:"space-between"}}>
           <YouTubeButton url={meals.strYoutube}></YouTubeButton>
           <TouchableOpacity onPress={() => Share(meals.strYoutube, meals.strMeal, ingredients, meals.strInstructions)}>
-            <Icon name="share-alt" size={45} color="white" style={styles.share}></Icon>
+            <Icon name="share-alt" size={35} color="white" style={styles.share}></Icon>
           </TouchableOpacity>
           </View>
           <TouchableOpacity onPress={() => navigation.navigate("MealsFilteredByArea",{
@@ -144,8 +146,8 @@ const styles = StyleSheet.create({
   },
   Tags:{color:"white", margin:10, backgroundColor:"#797979", alignSelf:"flex-start", padding:10, borderRadius:15,fontSize:22},
   share:{
+    marginHorizontal:25,
     verticalAlign:"middle",
     flex:1,   
-    marginHorizontal:15
   }
 });
