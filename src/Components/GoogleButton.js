@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Alert,Image, Dimensions, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import auth from "@react-native-firebase/auth"
+import database from '@react-native-firebase/database';
 
 GoogleSignin.configure({
     webClientId: '512190792821-c1pesc33vpucm1m1dqo0v2pljs3mttb2.apps.googleusercontent.com',
@@ -20,17 +21,26 @@ signOut = async () => {
         await onGoogleButtonPress()
         console.log("successfull")
 
-        // database()
-        // .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}`)
-        // .once("value", snapshot => {
-        //     if (snapshot.exists()) {
-        //         console.log("Kullanıcı daha önce kayıtlı.");
-        //        // navigation.navigate("")
-        //       } else {
-        //         console.log("Kullanıcı daha önce kayıtlı değil.");
-        //        // navigation.navigate("")
-        //       }
-        // })
+        database()
+        .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}`)
+        .once("value", snapshot => {
+            if (snapshot.exists()) {
+                console.log("Kullanıcı daha önce kayıtlı.");
+                navigation.navigate("Categories")
+              } else {
+                console.log("Kullanıcı daha önce kayıtlı değil.");
+                database()
+                .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}`)
+                .set(
+                  {
+                    favorites:["id"]
+                  }
+                )
+                navigation.navigate("Categories")
+                Alert.alert(" WELCOME ","Welcome to Recipes World")
+
+              }
+        })
     }
 
   return (

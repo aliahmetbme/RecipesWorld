@@ -12,7 +12,6 @@ export default function useFetch  (url)  {
       setLoading(true)
       // const {data: reponsedData} = await axios.get(url)
       const data = await axios.get(url)
-      console.log(data,'dataaaaa')
       setData(data.data)
       setLoading(false)
     } catch (error) {

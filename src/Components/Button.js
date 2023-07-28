@@ -1,10 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const Button = ({onPress, navigaiton}) => {
+const Button = ({onPress, navigaiton, description}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} >
-      <Text style={styles.button_text}>LOG - IN</Text>
+      <Text style={styles.button_text}>{description}</Text>
     </TouchableOpacity>
   )
 }

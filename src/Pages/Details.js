@@ -6,17 +6,22 @@ import Loading from '../Components/Loading';
 import YouTubeButton from '../Components/YouTubeButton';
 import Share from "../Hooks/Share";
 import Icon from "react-native-vector-icons/FontAwesome";
+import useFavorites from '../Hooks/AddFavorites';
 
 
 const Details = ({route, navigation}) => {
-  
   const id = route.params.id;
   const URL = Config.API_DETAILS + id;
+  const {isFavorite, addFavorites, checkIsFavorite} = useFavorites(id)
   let renderData= null
   let renderTags = null
   const {error, loading, data} = useFetch(URL);
   const meals = data?.meals?.length ? data.meals[0] : null;
-
+  
+  React.useEffect(() => {
+    checkIsFavorite();
+  }, []);
+    
   if (loading) {
     return <Loading></Loading>;
   }
@@ -61,7 +66,12 @@ const Details = ({route, navigation}) => {
   return (
     <ScrollView style={styles.container}>
       <Image source={{uri: meals.strMealThumb}} style={styles.Image}></Image>
-          <Text style={styles.title}>{meals.strMeal}</Text>
+          <View style={{flexDirection:"row", marginVertical:10}}>
+            <Text style={styles.title}>{meals.strMeal}</Text>
+            <TouchableOpacity onPress={addFavorites}>
+              { isFavorite ? <Icon style={styles.favorites_button} name="heart" size={40} color={"red"}></Icon> : <Icon style={styles.favorites_button} name="heart" size={40} color={"white"}></Icon>}
+            </TouchableOpacity>
+          </View>
           <View style={{flexDirection:"row", flexWrap:"wrap"}}>
             {renderTags ? renderTags : null}
           </View>
@@ -93,6 +103,7 @@ const styles = StyleSheet.create({
     flex:1
   },
   title: {
+    flex:1,
     alignSelf: "flex-start",
     margin: 10,
     fontSize: 30,
@@ -149,5 +160,13 @@ const styles = StyleSheet.create({
     marginHorizontal:25,
     verticalAlign:"middle",
     flex:1,   
+  },
+  favorites_button:{
+    verticalAlign:"middle",
+    marginRight:15,
+    padding:10,
+    backgroundColor:"#DADADA",
+    alignSelf:"center",
+    borderRadius:30,
   }
 });

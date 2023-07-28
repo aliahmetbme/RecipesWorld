@@ -4,22 +4,28 @@ import useFetch from '../Hooks/useFetch';
 import Config from 'react-native-config';
 import CategoiresCard from '../Components/CategoiresCard';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import auth from "@react-native-firebase/auth"
 
 const Categories = ({navigation}) => {
-  if (loading) {
-    return <Text>loading</Text>;
-  }
+  const [name] = React.useState(auth().currentUser.displayName ||auth().currentUser.email.split("@")[0])
   const {error, loading, data} = useFetch(Config.API_CATEGORIES);
+
   function renderData({item}) {
     return (
       <CategoiresCard navigation={navigation} item={item}></CategoiresCard>
     );
   }
+  
+    
+  if (loading) {
+    return <Text>loading</Text>;
+  }
+  
   return (
     <View style={styles.container}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Text style={styles.welcome_message}>Welcome name</Text>
-        <TouchableOpacity onPress={() => {}}>
+        <Text multiline style={styles.welcome_message}>Welcome {name}</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
           <Icon
             style={styles.Icon_style}
             name="account-circle"
@@ -40,6 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#898989',
   },
   welcome_message: {
+    flex:1,
     fontSize: 30,
     fontWeight: '700',
     marginHorizontal: 15,

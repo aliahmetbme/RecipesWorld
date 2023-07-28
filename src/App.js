@@ -9,6 +9,8 @@ import SignUp from './Pages/SignUp'
 import Categories from './Pages/Categories'
 import Variaites from './Pages/Variaites'
 import MealsFilteredByArea from './Pages/MealsFilteredByArea'
+import Profile from './Pages/Profile'
+import Favorites from "./Pages/Favorites"
 
 const App = () => {
 
@@ -23,6 +25,8 @@ const App = () => {
           <Stack.Screen name="Categories" component={Categories}></Stack.Screen>
           <Stack.Screen name="Variaites" component={Variaites}></Stack.Screen>
           <Stack.Screen name="MealsFilteredByArea" component={MealsFilteredByArea} options={{headerShown:true, headerStyle:{backgroundColor:"#696969"}, headerTintColor:"white", headerTitle:"Local Meals"}}></Stack.Screen>
+          <Stack.Screen name="Profile" component={Profile}></Stack.Screen>
+          <Stack.Screen name="Favorites" component={Favorites}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     )
