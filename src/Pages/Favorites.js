@@ -6,7 +6,8 @@ import database from "@react-native-firebase/database";
 import auth from "@react-native-firebase/auth";
 import MealsCard from '../Components/MealsCard';
 import Loading from '../Components/Loading';
-const Variaites = ({ route, navigation }) => {
+
+const Favorites = ({ route, navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,7 +16,7 @@ const Variaites = ({ route, navigation }) => {
   }, []);
 
   function findData() {
-    database()
+    try {database()
       .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}/favorites/`)
       .on("value", snapshot => {
         const favorites = snapshot.val();
@@ -27,6 +28,9 @@ const Variaites = ({ route, navigation }) => {
           setData([]);
         }
       });
+    } catch (error){
+      console.log(error)
+    }
   }
 
   const fetchDataForIds = async (ids) => {
@@ -47,7 +51,7 @@ const Variaites = ({ route, navigation }) => {
 
   function renderData({ item }) {
     try{if (item.meals[0] === null){return}} catch (error){return}
-    return <MealsCard navigation={navigation} item={item.meals[0]}></MealsCard>;
+    return <MealsCard onPress={() => navigation.push("Details",{id: item.meals[0].idMeal})} item={item.meals[0]}></MealsCard>;
   }
 
   if (loading) {
@@ -68,4 +72,4 @@ const Variaites = ({ route, navigation }) => {
   );
 };
 
-export default Variaites;
+export default Favorites;
