@@ -10,9 +10,9 @@ const MealsFilteredByArea = ({route,navigation}) => {
     const URL = Config.API_AREA + area
     function renderData ({item}) {
       return(
-      <MealsCard item={item} onPress={() => navigation.push("Details", { id: item.idMeal })}></MealsCard>
+      <MealsCard item={item} onPress={() => navigation.navigate("Details", { id: item.idMeal })}></MealsCard>
     )}
-
+    
     const {loading,data} = useFetch(URL)
     
     if(loading){

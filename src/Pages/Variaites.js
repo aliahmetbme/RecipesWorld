@@ -19,7 +19,7 @@ const Variaites = ({route, navigation}) => {
   }
 
 
-  function renderData({item}) {return (<MealsCard onPress={() => navigation.push("Details", { id: item.idMeal })} item={item}></MealsCard>)}
+  function renderData({item}) {return (<MealsCard onPress={() => navigation.navigate("Details", { id: item.idMeal })} item={item}></MealsCard>)}
   return (
     <View style={{flex:1,backgroundColor:"#494949"}}>
       <FlatList data={data.meals} renderItem={renderData}></FlatList>
