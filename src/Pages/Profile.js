@@ -8,6 +8,7 @@ import Favorites from "./Favorites"
 
 const Profile = ({navigation}) => {
     const [source] = React.useState(auth().currentUser.photoURL || "https://images.pexels.com/photos/5506141/pexels-photo-5506141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+    
     const signOut = async () => {
         try {
           await auth().signOut();
@@ -16,10 +17,7 @@ const Profile = ({navigation}) => {
         } catch (error) {
           console.error(error);
         }
-    
-        navigation.navigate("Login")
-    
-      };
+   };
     return (
         <ScrollView style={styles.container}>
             <View style={styles.Imagecontainer}>

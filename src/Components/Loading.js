@@ -1,14 +1,6 @@
-import {StyleSheet, Text, View, ActivityIndicator} from 'react-native';
 import React from 'react';
+import LottieView from 'lottie-react-native';
 
-const Loading = () => {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <ActivityIndicator />
-    </View>
-  );
+export default function Loading () {
+  return <LottieView style={{flex:1}} source={require("../Assest/wCcoH7bqv5.json")} autoPlay ></LottieView>  
 };
-
-export default Loading;
-
-const styles = StyleSheet.create({});

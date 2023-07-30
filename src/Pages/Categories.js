@@ -5,6 +5,7 @@ import Config from 'react-native-config';
 import CategoiresCard from '../Components/CategoiresCard';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import auth from "@react-native-firebase/auth"
+import Loading from '../Components/Loading';
 
 const Categories = ({navigation}) => {
   const [name] = React.useState(auth().currentUser.displayName ||auth().currentUser.email.split("@")[0])
@@ -18,7 +19,8 @@ const Categories = ({navigation}) => {
   
     
   if (loading) {
-    return <Text>loading</Text>;
+    console.log("loading")
+    return <Loading></Loading>;
   }
   
   return (

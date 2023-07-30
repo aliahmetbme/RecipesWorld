@@ -5,10 +5,10 @@ import axios from 'axios';
 import database from "@react-native-firebase/database";
 import auth from "@react-native-firebase/auth";
 import MealsCard from '../Components/MealsCard';
-
+import Loading from '../Components/Loading';
 const Variaites = ({ route, navigation }) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true); // Yüklenme durumunu tutmak için
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     findData();
@@ -46,7 +46,6 @@ const Variaites = ({ route, navigation }) => {
   };
 
   function renderData({ item }) {
-    
     try{if (item.meals[0] === null){return}} catch (error){return}
     return <MealsCard navigation={navigation} item={item.meals[0]}></MealsCard>;
   }
@@ -54,12 +53,11 @@ const Variaites = ({ route, navigation }) => {
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Loading...</Text>
+        <Loading />
       </View>
     );
   }
 
-  console.log(data, "asdjaoıoadıoasjdoıasjıodjasodjasodjaso")
 
   return (
     <View>

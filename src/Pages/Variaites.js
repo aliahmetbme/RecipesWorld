@@ -4,6 +4,7 @@ import Config from 'react-native-config'
 import useFetch from '../Hooks/useFetch'
 
 import MealsCard from '../Components/MealsCard'
+import Loading from '../Components/Loading'
 
 const Variaites = ({route, navigation}) => {
   const category = route.params.category 
@@ -13,12 +14,12 @@ const Variaites = ({route, navigation}) => {
 
   if(loading){
     return(
-      <Text>loading</Text>
-    )
+      <Loading></Loading>
+      )
   }
 
 
-  function renderData({item}) {return (<MealsCard navigation={navigation}item={item}></MealsCard>)}
+  function renderData({item}) {return (<MealsCard onPress={() => navigation.navigate("Details", { id: item.idMeal })} item={item}></MealsCard>)}
   return (
     <View style={{flex:1,backgroundColor:"#494949"}}>
       <FlatList data={data.meals} renderItem={renderData}></FlatList>

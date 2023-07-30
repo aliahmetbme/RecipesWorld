@@ -11,7 +11,7 @@ import useFavorites from '../Hooks/AddFavorites';
 
 const Details = ({route, navigation}) => {
   const id = route.params.id;
-  const URL = Config.API_DETAILS + id;
+  const [URL] = React.useState(Config.API_DETAILS + id);
   const {isFavorite, addFavorites, checkIsFavorite} = useFavorites(id)
   let renderData= null
   let renderTags = null
