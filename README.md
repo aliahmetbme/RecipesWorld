@@ -30,17 +30,18 @@ There is also an option to share the recipe information along with the YouTube l
 You can create accounts with the app, email, or Google accounts and access your own favorite recipes from any device.
 Compatible with all devices with Responsive Design.
 ---
-#Firebase
-#API
-#axios
-#Firebaseauthentication (email and Google sign-in)
-#Config
-#FirebaseRealTimeDB
-#ReactNavigation
-#ReactNavigationStack
-#formik
-#Lottie
-#ResposnisveFontsize
-#VectorIcons
+## Packages 
+### Firebase
+### API
+### Axios
+### Firebaseauthentication (email and Google sign-in)
+### Config
+### FirebaseRealTimeDB
+### ReactNavigation
+### ReactNavigationStack
+### Formik
+### Lottie
+### ResposnisveFontsize
+### VectorIcons
 
 
