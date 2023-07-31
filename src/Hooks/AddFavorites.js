@@ -9,7 +9,7 @@ export default function useFavorites (id) {
     function checkIsFavorite() {
 
         database()
-          .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}/favorites/${id}`)
+          .ref(`/${auth().currentUser.email.split("@")[0].split(".")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}/favorites/${id}`)
           .once("value", snapshot => {
             if (snapshot.exists()) {
               setFavorite(true);
@@ -24,7 +24,7 @@ export default function useFavorites (id) {
     const addFavorites = ()  => {
         if (!isFavorite) { 
         database()
-        .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}/favorites/${id}/`)
+        .ref(`/${auth().currentUser.email.split("@")[0].split(".")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}/favorites/${id}/`)
         .update({
             id
         })
@@ -32,7 +32,7 @@ export default function useFavorites (id) {
             setFavorite(true)
         } else {
             database()
-            .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}/favorites/${id}`)
+            .ref(`/${auth().currentUser.email.split("@")[0].split(".")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}/favorites/${id}`)
             .remove()
             setFavorite(false)
         }

@@ -31,7 +31,7 @@ const SignUp = ({navigation}) => {
         formValues.password,
       )
       database()
-        .ref(`/${auth().currentUser.email.split("@")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}`)
+        .ref(`/${auth().currentUser.email.split("@")[0].split(".")[0] + auth().currentUser.email.split("@")[1].split(".")[0]}`)
         .set(
           {
             favorites:["id"]
