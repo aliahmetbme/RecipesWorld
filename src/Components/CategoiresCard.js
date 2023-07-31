@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   title:{
     color:"white",
-    fontSize:RFPercentage(5),
+    fontSize:RFPercentage(4.5),
     textShadowColor: '#DADADA',
     textShadowOffset: { width: RFPercentage(0.5), height: RFPercentage(0.5) },
     textShadowRadius: RFPercentage(0.5),

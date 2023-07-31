@@ -23,14 +23,14 @@ signOut = async () => {
         console.log("successfull")
 
         database()
-        .ref(`/${auth().currentUser.email.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '')}`)
+        .ref(`/${auth().currentUser.uid}/${auth().currentUser.email.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '')}`)
         .once("value", snapshot => {
             if (snapshot.exists()) {
                 console.log("Kullanıcı daha önce kayıtlı.");
               } else {
                 console.log("Kullanıcı daha önce kayıtlı değil.");
                 database()
-                .ref(`/${auth().currentUser.email.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '')}`)
+                .ref(`/${auth().currentUser.uid}/${auth().currentUser.email.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '')}`)
                 .set(
                   {
                     favorites:["id"]

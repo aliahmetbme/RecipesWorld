@@ -35,9 +35,9 @@ const Profile = ({navigation}) => {
                 <Image style={styles.image} source={{uri: source}}></Image>
                 <Text style={styles.name}>{ auth().currentUser.displayName || auth().currentUser.email.split("@")[0]}</Text>
             </View>
-            <View style={{flexDirection:"row", alignSelf:"flex-start", margin:10, borderRadius:RFPercentage(1.5) ,justifyContent:"center" ,padding:RFPercentage(1), backgroundColor:"#999999"}}>
+            <View style={{flexDirection:"row", alignSelf:"flex-start", justifyContent:"center",margin:10, borderRadius:RFPercentage(1.5) ,justifyContent:"center" ,padding:RFPercentage(1), backgroundColor:"#999999"}}>
                 <Text style={styles.FavoritesButton}>Fovorites</Text>
-                <Icons name="angle-right" size={RFPercentage(3)} color={"black"}></Icons>
+                <Icons name="angle-right" size={RFPercentage(3)} color={"black"} style={{alignSelf:"center"}}></Icons>
             </View>
             <Favorites navigation={navigation}></Favorites>
         </ScrollView>
