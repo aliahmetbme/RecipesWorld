@@ -3,6 +3,7 @@ import React from 'react'
 import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import auth from "@react-native-firebase/auth"
 import database from '@react-native-firebase/database';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 GoogleSignin.configure({
     webClientId: '512190792821-c1pesc33vpucm1m1dqo0v2pljs3mttb2.apps.googleusercontent.com',
@@ -18,7 +19,7 @@ signOut = async () => {
  const GoogleButton = ({navigation}) => {
    
     async function signIn()  {
-        await onGoogleButtonPress()
+       try {await onGoogleButtonPress()
         console.log("successfull")
 
         database()
@@ -26,7 +27,6 @@ signOut = async () => {
         .once("value", snapshot => {
             if (snapshot.exists()) {
                 console.log("Kullanıcı daha önce kayıtlı.");
-                navigation.navigate("Categories")
               } else {
                 console.log("Kullanıcı daha önce kayıtlı değil.");
                 database()
@@ -36,11 +36,12 @@ signOut = async () => {
                     favorites:["id"]
                   }
                 )
-                navigation.navigate("Categories")
                 Alert.alert(" WELCOME ","Welcome to Recipes World")
 
               }
-        })
+        })} catch (error) {
+          console.log(error)
+        }
     }
 
   return (
@@ -77,8 +78,8 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:"row",
         backgroundColor:"white",
-        margin: 10,
-        marginHorizontal:15,
+        margin:RFPercentage(1.5),
+        marginHorizontal:RFPercentage(2),
         borderRadius:10,
         alignItems:"center",
         borderColor:"black",
@@ -86,8 +87,8 @@ const styles = StyleSheet.create({
         paddingVertical:5
     },
     Image:{
-        width:30,
-        height:30,
+        width:RFPercentage(3),
+        height:RFPercentage(3),
         margin:5,
         marginLeft:15,
         marginRight:0
@@ -99,6 +100,6 @@ const styles = StyleSheet.create({
         flex:1,
         textAlign:"center",
         fontWeight:"bold",
-        fontSize:17,
+        fontSize:RFPercentage(2.5),
     }
 })

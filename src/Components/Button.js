@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
-
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 const Button = ({onPress, navigaiton, description}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} >
@@ -16,11 +16,11 @@ const styles = StyleSheet.create({
         backgroundColor:"#898989",
         padding:10,
         alignItems:"center",
-        margin:15,
+        margin:RFPercentage(2),
         borderRadius:15
     },
     button_text:{
         color:"white",
-        fontSize:20
+        fontSize:RFPercentage(2.5)
     }
 })

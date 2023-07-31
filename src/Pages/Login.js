@@ -1,11 +1,12 @@
-import { View, Text, Alert, StyleSheet, Image, TouchableOpacity} from 'react-native'
+import { View, Text, Alert, StyleSheet,ScrollView ,Image, TouchableOpacity} from 'react-native'
 import React from 'react'
 import {Formik} from 'formik';
 import auth from '@react-native-firebase/auth';
-
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import GoogleButton from '../Components/GoogleButton';
 import Input from '../Components/Input'
 import Button from '../Components/Button';
+import { Screen } from 'react-native-screens';
 
 const Login = ({navigation}) => {
   const InitialValues = {
@@ -40,6 +41,7 @@ const Login = ({navigation}) => {
 
 
   return (
+    <ScrollView style={{flex:1, backgroundColor:"#292929"}}>
     <View style={styles.container}>
       <Image style={styles.Image} source={require("../Assest/pngwing.com.png")}></Image>
       <Formik initialValues={InitialValues} onSubmit={Login}>
@@ -58,6 +60,7 @@ const Login = ({navigation}) => {
         </TouchableOpacity>
       </View>
     </View>
+    </ScrollView>
   )
 }
 
@@ -75,15 +78,15 @@ const styles = StyleSheet.create({
     },
     signUpText:{
       color:"white",
-      fontSize:18,
+      fontSize:RFPercentage(2.2),
       alignSelf:"center"
     },
     Image:{
-      width:250,
-      height:250,
+      width:RFPercentage(30),
+      height:RFPercentage(30),
       resizeMode:"contain",
       alignSelf:"center",
-      margin:10,
-      marginTop:15
+      margin:RFPercentage(1),
+      marginTop:RFPercentage(1.5)
     }
 })

@@ -6,7 +6,7 @@ import CategoiresCard from '../Components/CategoiresCard';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import auth from "@react-native-firebase/auth"
 import Loading from '../Components/Loading';
-
+import {RFPercentage} from "react-native-responsive-fontsize"
 const Categories = ({navigation}) => {
   const [name] = React.useState(auth().currentUser.displayName ||auth().currentUser.email.split("@")[0])
   const {error, loading, data} = useFetch(Config.API_CATEGORIES);
@@ -19,7 +19,6 @@ const Categories = ({navigation}) => {
   
     
   if (loading) {
-    console.log("loading")
     return <Loading></Loading>;
   }
   
@@ -31,7 +30,7 @@ const Categories = ({navigation}) => {
           <Icon
             style={styles.Icon_style}
             name="account-circle"
-            size={50}
+            size={RFPercentage(7)}
             color={'#292929'}></Icon>
         </TouchableOpacity>
       </View>
@@ -49,9 +48,9 @@ const styles = StyleSheet.create({
   },
   welcome_message: {
     flex:1,
-    fontSize: 30,
+    fontSize: RFPercentage(4.5),
     fontWeight: '700',
-    marginHorizontal: 15,
+    marginHorizontal: RFPercentage(1.5),
     margin: 10,
     color: 'white',
     fontStyle: 'italic',

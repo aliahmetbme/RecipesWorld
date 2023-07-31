@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/Ionicons"
 import Icons from "react-native-vector-icons/FontAwesome"
 import {GoogleSignin} from "@react-native-google-signin/google-signin"
 import Favorites from "./Favorites"
-
+import {RFPercentage} from "react-native-responsive-fontsize"
 const Profile = ({navigation}) => {
     const [source] = React.useState(auth().currentUser.photoURL || "https://images.pexels.com/photos/5506141/pexels-photo-5506141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
     
@@ -24,20 +24,20 @@ const Profile = ({navigation}) => {
                 <View style={{flexDirection:"row", justifyContent:"space-between"}}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate("Categories")}>
-                        <Icon name="home" size={35} color="#898989" style={{margin:15}}/>
+                        <Icon name="home" size={RFPercentage(5)} color="#898989" style={{margin:RFPercentage(3)}}/>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={signOut}>
-                        <Icons name="sign-out" size={35} color="#898989" style={{margin:15}} ></Icons>
+                        <Icons name="sign-out" size={RFPercentage(5)} color="#898989" style={{margin:RFPercentage(3)}} ></Icons>
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.profile}>My Profile</Text>
                 <Image style={styles.image} source={{uri: source}}></Image>
                 <Text style={styles.name}>{ auth().currentUser.displayName || auth().currentUser.email.split("@")[0]}</Text>
             </View>
-            <View style={{flexDirection:"row", alignSelf:"flex-start", margin:10, borderRadius:15 ,justifyContent:"center" ,padding:10, backgroundColor:"#999999"}}>
+            <View style={{flexDirection:"row", alignSelf:"flex-start", margin:10, borderRadius:RFPercentage(1.5) ,justifyContent:"center" ,padding:RFPercentage(1), backgroundColor:"#999999"}}>
                 <Text style={styles.FavoritesButton}>Fovorites</Text>
-                <Icons name="angle-right" size={25} color={"black"}></Icons>
+                <Icons name="angle-right" size={RFPercentage(3)} color={"black"}></Icons>
             </View>
             <Favorites navigation={navigation}></Favorites>
         </ScrollView>
@@ -53,25 +53,25 @@ const styles = StyleSheet.create({
     },
     Imagecontainer:{
         backgroundColor:"#292929",
-        minHeight:Dimensions.get("window").height / 3,
-        borderBottomRightRadius:40,
-        borderBottomLeftRadius:30
+        minHeight:Dimensions.get("window").height / 2.5,
+        borderBottomRightRadius:RFPercentage(4),
+        borderBottomLeftRadius:RFPercentage(4)
     },
     image:{
-        height:80,
-        width:80,
-        borderRadius:40,
+        height:RFPercentage(15),
+        width:RFPercentage(15),
+        borderRadius:RFPercentage(15) / 2,
         alignSelf:"center",
     },
     profile:{
         color:"white",
-        fontSize:30,
+        fontSize:RFPercentage(4.5),
         textAlign:"center",
         margin:15,
     },
     name:{
         color:"white",
-        fontSize:35,
+        fontSize:RFPercentage(4),
         fontWeight:"700",
         textAlign:"center",
         paddingTop:20,
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
     },
     FavoritesButton:{
         color:"white",
-        fontSize:20,
+        fontSize:RFPercentage(2.5),
         fontWeight:"bold",
-        marginRight:15
+        marginRight:RFPercentage(1.5)
     }
 })

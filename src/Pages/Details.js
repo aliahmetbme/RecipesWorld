@@ -7,6 +7,7 @@ import YouTubeButton from '../Components/YouTubeButton';
 import Share from "../Hooks/Share";
 import Icon from "react-native-vector-icons/FontAwesome";
 import useFavorites from '../Hooks/AddFavorites';
+import { RFPercentage } from "react-native-responsive-fontsize"
 
 
 const Details = ({route, navigation}) => {
@@ -43,12 +44,13 @@ const Details = ({route, navigation}) => {
       break;
     }
   }
+  console.log(RFPercentage(6))
   
   if (ingredients) {
      renderData = ingredients.map((item, index) => {
       return(
         <View key={index} style={{}}>
-          <Text style={{color:"white", fontSize:17}}>{item}</Text>
+          <Text style={{color:"white", fontSize:RFPercentage(2.5)}}>{item}</Text>
         </View>
       )
     })
@@ -58,7 +60,7 @@ const Details = ({route, navigation}) => {
   meals.strTags ? renderTags = meals.strTags.split(",").map((item, index) =>{
     return(
       <View key={index} style={{flexWrap:"wrap",flexDirection: 'row',}}>
-        <Text  style={styles.Tags}># {item}</Text>
+       { item ? <Text  style={styles.Tags}># {item}</Text> : null}
       </View>
     )
   }) : null
@@ -69,16 +71,16 @@ const Details = ({route, navigation}) => {
           <View style={{flexDirection:"row", marginVertical:10}}>
             <Text style={styles.title}>{meals.strMeal}</Text>
             <TouchableOpacity onPress={addFavorites}>
-              { isFavorite ? <Icon style={styles.favorites_button} name="heart" size={40} color={"red"}></Icon> : <Icon style={styles.favorites_button} name="heart" size={40} color={"white"}></Icon>}
+              { isFavorite ? <Icon style={styles.favorites_button} name="heart" size={RFPercentage(6)} color={"red"}></Icon> : <Icon style={styles.favorites_button} name="heart" size={RFPercentage(6)} color={"white"}></Icon>}
             </TouchableOpacity>
           </View>
           <View style={{flexDirection:"row", flexWrap:"wrap"}}>
             {renderTags ? renderTags : null}
           </View>
-          <View style={{flexDirection:"row", padding:5, justifyContent:"space-between"}}>
+          <View style={{flexDirection:"row", padding:5, justifyContent:"space-between", alignItems:"center",flexWrap:"wrap"}}>
           <YouTubeButton url={meals.strYoutube}></YouTubeButton>
           <TouchableOpacity onPress={() => Share(meals.strYoutube, meals.strMeal, ingredients, meals.strInstructions)}>
-            <Icon name="share-alt" size={35} color="white" style={styles.share}></Icon>
+            <Icon name="share-alt" size={RFPercentage(6)} color="white" style={styles.share}></Icon>
           </TouchableOpacity>
           </View>
           <TouchableOpacity onPress={() => navigation.navigate("MealsFilteredByArea",{
@@ -106,7 +108,7 @@ const styles = StyleSheet.create({
     flex:1,
     alignSelf: "flex-start",
     margin: 10,
-    fontSize: 30,
+    fontSize: RFPercentage(3.5),
     color: 'white',
     textShadowColor: 'gray',
     textShadowOffset: {width: 5, height: 5},
@@ -114,9 +116,9 @@ const styles = StyleSheet.create({
   },
   Image: {
     minWidth: Dimensions.get('screen').width,
-    minHeight: Dimensions.get('screen').height / 2,
-    borderBottomLeftRadius:30,
-    borderBottomRightRadius:30
+    minHeight: Dimensions.get('screen'). height / 2,
+    borderBottomLeftRadius:RFPercentage(4),
+    borderBottomRightRadius:RFPercentage(4),
   },
   area: {
     color: 'white',
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     padding: 10,
     borderRadius: 10,
-    fontSize: 18,
+    fontSize: RFPercentage(2.8),
     marginHorizontal: 15,
     margin: 10,
     fontWeight: 'bold',
@@ -134,39 +136,41 @@ const styles = StyleSheet.create({
     borderBottomWidth:2,
     borderBottomColor:"white",
     padding:10,
-    paddingTop:0
+    paddingTop:0,
+    fontSize:RFPercentage(2.9)
   },
   IngredientTitle:{
     color:"white",
     fontWeight:"900",
-    fontSize:22,
+    fontSize:RFPercentage(3.2),
     marginTop:0,
     marginVertical:5,
   },
   Instruction:{
     color:"white",
     margin:15,
-    fontSize:19,
+    fontSize:RFPercentage(3),
   },
   InstructionTitle:{
     color:"white",
-    margin:10,
+    margin:15,
     marginVertical:5,
-    fontSize:22,
+    fontSize:RFPercentage(3.2),
     fontWeight:"bold"
   },
-  Tags:{color:"white", margin:10, backgroundColor:"#797979", alignSelf:"flex-start", padding:10, borderRadius:15,fontSize:22},
+  Tags:{color:"white", margin:10,marginLeft:15, backgroundColor:"#797979", alignSelf:"flex-start", padding:10, borderRadius:15,fontSize:RFPercentage(3)},
   share:{
     marginHorizontal:25,
     verticalAlign:"middle",
-    flex:1,   
+    margin:15
   },
   favorites_button:{
     verticalAlign:"middle",
     marginRight:15,
-    padding:10,
+    padding:RFPercentage(2),
     backgroundColor:"#DADADA",
     alignSelf:"center",
-    borderRadius:30,
+    borderRadius:RFPercentage(6),
+    margin:15
   }
 });

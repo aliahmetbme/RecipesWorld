@@ -4,6 +4,7 @@ import useFetch from '../Hooks/useFetch'
 import Config from 'react-native-config'
 import MealsCard from '../Components/MealsCard'
 import Loading from '../Components/Loading'
+import {RFPercentage} from "react-native-responsive-fontsize"
 
 const MealsFilteredByArea = ({route,navigation}) => {
     const area = route.params.area
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"black",
-        fontSize:30,
+        fontSize:RFPercentage(3.5),
         fontWeight:"900",
         marginHorizontal:15,
         borderBottomWidth:5

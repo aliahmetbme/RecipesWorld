@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View,ImageBackground,Dimensions,TouchableOpacity } from 'react-native'
 import React from 'react'
-
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 const MealsCard = ({onPress, item}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
@@ -18,15 +18,16 @@ export default MealsCard
 const styles = StyleSheet.create({
   container:{
     margin:10,
-    marginHorizontal:15,
-    width:Dimensions.get("screen").width * 0.9,
-    height:Dimensions.get("screen").height / 3,
+    // marginHorizontal:15,
+    width:RFPercentage(60),
+    minHeight:RFPercentage(40),
     alignSelf:"center",
-    borderRadius:15
+    borderRadius:15,
+    resizeMode:"contain"
   },
   title:{
     alignSelf:"center",
-    fontSize:26,
+    fontSize:RFPercentage(4),
     textAlign:"center",
     margin:10,
     fontWeight:"900",

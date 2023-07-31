@@ -1,6 +1,7 @@
 import { View, Text, Linking , TouchableOpacity} from 'react-native'
 import React, {useCallback} from 'react'
 import Icon from "react-native-vector-icons/Ionicons"
+import {RFPercentage} from "react-native-responsive-fontsize"
 
 export default function YouTubeButton ({url})  {
     const handlePress = useCallback(async () => {
@@ -19,8 +20,8 @@ export default function YouTubeButton ({url})  {
   
     return (
         <TouchableOpacity onPress={handlePress} style={{backgroundColor:"gray",padding:10,borderRadius:15,marginTop:10,marginHorizontal:10,alignSelf:"flex-start",flexDirection:"row", alignItems:"center"}}>
-            <Icon name="logo-youtube" size={45} color="red"></Icon>
-            <Text style={{marginHorizontal:10, fontSize:20, fontWeight:"bold", color:"white"}}>Watch on YouTube</Text>
+            <Icon name="logo-youtube" size={RFPercentage(5)} color="red"></Icon>
+            <Text style={{marginHorizontal:10, fontSize:RFPercentage(2.5), fontWeight:"bold", color:"white"}}>Watch on YouTube</Text>
         </TouchableOpacity>
     )
   };

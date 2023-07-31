@@ -1,24 +1,24 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { StyleSheet, KeyboardAvoidingView, View, TextInput, TouchableOpacity } from 'react-native'
 import React, {useState} from 'react'
 import Icon from "react-native-vector-icons/Feather"
-
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 const Input = ({description, isPassword, value, onChangeText}) => {
     const [shownPassword, setShownPassword] = useState(false)
 
     if (isPassword){
         return (
-            <View style={styles.password_container}>
+            <KeyboardAvoidingView style={styles.password_container}>
                 <TextInput onChangeText={onChangeText} value={value} maxLength={10} secureTextEntry={!shownPassword} style={styles.text}  placeholder={description}></TextInput> 
                 <TouchableOpacity onPress={() => setShownPassword(!shownPassword)} style={{justifyContent:"center"}}>
-                    <Icon name={shownPassword ? 'eye' : 'eye-off'}  size={30} color={"black"} style={styles.Icon_container}></Icon>
+                    <Icon name={shownPassword ? 'eye' : 'eye-off'}  size={RFPercentage(4)} color={"black"} style={styles.Icon_container}></Icon>
                 </TouchableOpacity>
-            </View>
+            </KeyboardAvoidingView>
         )
     } else {
     return (
-        <View style={styles.password_container}>
+        <KeyboardAvoidingView style={styles.password_container}>
         <TextInput onChangeText={onChangeText} value={value} multiline style={styles.text} placeholder={description}></TextInput>
-        </View>
+        </KeyboardAvoidingView>
     )
   }
 }
@@ -29,16 +29,17 @@ const styles = StyleSheet.create({
     password_container:{
         flexDirection:"row",
         backgroundColor:"#DADADA",
-        margin:15,
-        borderRadius:20,
-        justifyContent:"space-between"
+        margin:RFPercentage(1.5),
+        borderRadius:RFPercentage(1.5),
+        justifyContent:"space-between",
     },
     Icon_container:{
-        marginHorizontal:15
+        marginHorizontal:RFPercentage(2)
     },
     text:{
-        paddingVertical:15,
-        marginHorizontal:15,
-        flex:1
+        paddingVertical:RFPercentage(2),
+        marginHorizontal:RFPercentage(2),
+        flex:1,
+        fontSize:RFPercentage(2),
     }
 })

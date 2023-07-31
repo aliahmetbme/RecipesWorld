@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, Alert } from 'react-native'
+import { StyleSheet, Text, View, Alert, ScrollView } from 'react-native'
 import React from 'react'
 import {Formik} from "formik"
 import auth from  "@react-native-firebase/auth"
 import database from "@react-native-firebase/database"
-
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import Input from '../Components/Input'
 import Button from '../Components/Button';
 
@@ -50,6 +50,7 @@ const SignUp = ({navigation}) => {
 
 
   return (
+    <ScrollView style={{flex:1,backgroundColor:"#292929"}}>
     <View style={styles.container}>
       <View style={styles.title_container}> 
         <Text style={styles.title}>REGISTRATION PAGE</Text>
@@ -67,6 +68,7 @@ const SignUp = ({navigation}) => {
         </Formik>
       </View>  
     </View>
+    </ScrollView>
   )
 }
 
@@ -76,12 +78,13 @@ const styles = StyleSheet.create({
   container:{
     backgroundColor:"#292929",
     flex:1,
-    justifyContent:"center"
+    justifyContent:"center",
+    marginVertical:RFPercentage(0.5)
   },
   title:{
     color:"white",
     alignSelf:"center",
-    fontSize:26,
+    fontSize:RFPercentage(4),
     fontWeight:"bold"
   },
   title_container:{
