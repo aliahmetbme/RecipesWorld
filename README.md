@@ -1,5 +1,14 @@
-![Adsız tasarım (1)](https://github.com/aliahmetbme/Recipes/assets/110021045/def6cfc7-637e-4bf6-9286-75d873c292d2)# RepicesWorld
 
+# RepicesWorld
+
+---
+## UI 
+![Adsız tasarım (1)](https://github.com/aliahmetbme/Recipes/assets/110021045/def6cfc7-637e-4bf6-9286-75d873c292d2)
+
+![Adsız tasarım](https://github.com/aliahmetbme/Recipes/assets/110021045/75440345-c9e0-4b15-aa09-6ce6c79fd538)
+
+---
+## Türkçe
 Bu uygulama, API kaynağından yemek tariflerini çekerek kategorilere ayırıp ana sayfada sunuyor.
 Kategorilere tıkladığınızda, her kategorinin içindeki tarifleri sıralı bir şekilde görüntüleyebilirsiniz.
 Yemeklere tıkladığınızda, detay sayfasında yemek tarifinin uygulamalı yapılışını gösteren YouTube videosuna yönlendirme butonu bulunmaktadır.
@@ -10,10 +19,7 @@ Ayrıca, tarif bilgilerini YouTube linkiyle birlikte paylaşma seçeneği de bul
 Uygulamaya, e-posta veya Google hesaplarıyla hesap oluşturabilir ve kendi favori tariflerinize herhangi bir cihazdan ulaşabilirsiniz.
 Responsive Tasarımla tüm cihazlara uyumludur.
 ---
-
-
-
-
+## English
 This application pulls the recipes from the API source, categorizes them, and presents them on the home page.
 When you click on the categories, you can view the recipes in each category in order.
 When you click on the dishes, there is a button to redirect to the YouTube video showing the practical application of the recipe on the detail page.
