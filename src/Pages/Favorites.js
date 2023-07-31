@@ -17,7 +17,7 @@ const Favorites = ({ route, navigation }) => {
 
   function findData() {
     try {database()
-      .ref(`/${auth().currentUser.uid}/${auth().currentUser.email.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '')}/favorites/`)
+      .ref(`/${auth().currentUser.email.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '')}/favorites/`)
       .on("value", snapshot => {
         const favorites = snapshot.val();
         if (favorites) {

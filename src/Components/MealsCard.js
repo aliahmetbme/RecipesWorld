@@ -18,8 +18,8 @@ export default MealsCard
 const styles = StyleSheet.create({
   container:{
     margin:10,
-    marginHorizontal:15,
-    width:RFPercentage(50),
+    // marginHorizontal:15,
+    width:RFPercentage(60),
     minHeight:RFPercentage(40),
     alignSelf:"center",
     borderRadius:15,
