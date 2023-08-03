@@ -5,7 +5,7 @@
 ## UI 
 ![Adsız tasarım (1)](https://github.com/aliahmetbme/RecipesWorld/blob/main/Ads%C4%B1z%20tasar%C4%B1m%20(1).png)
 
-![Adsız tasarım](https://github.com/aliahmetbme/Recipes/assets/110021045/75440345-c9e0-4b15-aa09-6ce6c79fd538)
+![Adsız tasarım](https://github.com/aliahmetbme/RecipesWorld/blob/main/1690819074396.jpeg)
 
 ---
 ## Türkçe
