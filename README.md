@@ -3,7 +3,7 @@
 
 ---
 ## UI 
-![Adsız tasarım (1)](https://github.com/aliahmetbme/Recipes/assets/110021045/def6cfc7-637e-4bf6-9286-75d873c292d2)
+![Adsız tasarım (1)](https://github.com/aliahmetbme/RecipesWorld/blob/main/Ads%C4%B1z%20tasar%C4%B1m%20(1).png)
 
 ![Adsız tasarım](https://github.com/aliahmetbme/Recipes/assets/110021045/75440345-c9e0-4b15-aa09-6ce6c79fd538)
 
