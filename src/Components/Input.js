@@ -27,6 +27,7 @@ export default Input
 
 const styles = StyleSheet.create({
     password_container:{
+        overflow:"hidden",
         flexDirection:"row",
         backgroundColor:"#DADADA",
         margin:RFPercentage(1.5),
@@ -37,9 +38,11 @@ const styles = StyleSheet.create({
         marginHorizontal:RFPercentage(2)
     },
     text:{
+        overflow:"hidden",
         paddingVertical:RFPercentage(2),
         marginHorizontal:RFPercentage(2),
         flex:1,
         fontSize:RFPercentage(2),
+        justifyContent:"center",
     }
 })

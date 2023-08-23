@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, SafeAreaView } from 'react-native'
 import React from 'react'
 import Config from 'react-native-config'
 import useFetch from '../Hooks/useFetch'
@@ -21,9 +21,9 @@ const Variaites = ({route, navigation}) => {
 
   function renderData({item}) {return (<MealsCard onPress={() => navigation.navigate("Details", { id: item.idMeal })} item={item}></MealsCard>)}
   return (
-    <View style={{flex:1,backgroundColor:"#494949"}}>
+    <SafeAreaView style={{flex:1,backgroundColor:"#494949"}}>
       <FlatList data={data.meals} renderItem={renderData}></FlatList>
-    </View>
+    </SafeAreaView>
   )
 }
 

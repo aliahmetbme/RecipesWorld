@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList } from 'react-native'
+import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native'
 import React from 'react'
 import useFetch from '../Hooks/useFetch'
 import Config from 'react-native-config'
@@ -22,12 +22,12 @@ const MealsFilteredByArea = ({route,navigation}) => {
       )
     }
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.title}>{area} Meals</Text>
         <FlatList
           data={data.meals}
           renderItem={renderData}></FlatList>
-      </View>
+      </SafeAreaView>
     )
 }
 

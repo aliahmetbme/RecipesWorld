@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, FlatList, TouchableOpacity,SafeAreaView} from 'react-native';
 import React from 'react';
 import useFetch from '../Hooks/useFetch';
 import Config from 'react-native-config';
@@ -23,7 +23,7 @@ const Categories = ({navigation}) => {
   }
   
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <Text multiline style={styles.welcome_message}>Welcome {name}</Text>
         <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
@@ -35,7 +35,7 @@ const Categories = ({navigation}) => {
         </TouchableOpacity>
       </View>
       <FlatList data={data.categories} renderItem={renderData}></FlatList>
-    </View>
+    </SafeAreaView>
   );
 };
 

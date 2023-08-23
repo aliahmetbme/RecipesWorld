@@ -1,4 +1,4 @@
-import { StyleSheet,  Text,  View,Button, Alert ,TouchableOpacity ,ScrollView,  Image,  Dimensions,} from 'react-native';
+import { StyleSheet,  Text,  View,Button, Alert ,TouchableOpacity ,ScrollView,  Image,  Dimensions, Platform,} from 'react-native';
 import React, {useCallback} from 'react';
 import Config from 'react-native-config';
 import useFetch from '../Hooks/useFetch';
@@ -74,6 +74,7 @@ const Details = ({route, navigation}) => {
               { isFavorite ? <Icon style={styles.favorites_button} name="heart" size={RFPercentage(6)} color={"red"}></Icon> : <Icon style={styles.favorites_button} name="heart" size={RFPercentage(6)} color={"white"}></Icon>}
             </TouchableOpacity>
           </View>
+          { Platform.OS === "ios" ? <Icon name="arrow-left" size={RFPercentage(4)} style={styles.GoBack} onPress={() => navigation.goBack()}color="white"></Icon> : null}
           <View style={{flexDirection:"row", flexWrap:"wrap"}}>
             {renderTags ? renderTags : null}
           </View>
@@ -115,6 +116,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 2,
   },
   Image: {
+    overflow:"hidden",
     minWidth: Dimensions.get('screen').width,
     minHeight: Dimensions.get('screen'). height / 2,
     borderBottomLeftRadius:RFPercentage(4),
@@ -165,12 +167,16 @@ const styles = StyleSheet.create({
     margin:15
   },
   favorites_button:{
+    overflow:"hidden",
     verticalAlign:"middle",
     marginRight:15,
     padding:RFPercentage(2),
     backgroundColor:"#DADADA",
     alignSelf:"center",
-    borderRadius:RFPercentage(6),
+    borderRadius: Platform.OS === "android" ? RFPercentage(6) : RFPercentage(5),
     margin:15
+  },
+  GoBack:{
+    padding:RFPercentage(1),
   }
 });

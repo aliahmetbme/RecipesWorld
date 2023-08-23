@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList , Dimensions, TouchableOpacity ,ScrollView,Image} from 'react-native'
+import { StyleSheet, Text, View, FlatList , Dimensions, TouchableOpacity ,ScrollView,Image, SafeAreaView} from 'react-native'
 import React from 'react'
 import auth from '@react-native-firebase/auth'
 import Icon from "react-native-vector-icons/Ionicons"
@@ -20,7 +20,7 @@ const Profile = ({navigation}) => {
    };
     return (
         <ScrollView style={styles.container}>
-            <View style={styles.Imagecontainer}>
+            <SafeAreaView style={styles.Imagecontainer}>
                 <View style={{flexDirection:"row", justifyContent:"space-between"}}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate("Categories")}>
@@ -34,7 +34,7 @@ const Profile = ({navigation}) => {
                 <Text style={styles.profile}>My Profile</Text>
                 <Image style={styles.image} source={{uri: source}}></Image>
                 <Text style={styles.name}>{ auth().currentUser.displayName || auth().currentUser.email.split("@")[0]}</Text>
-            </View>
+            </SafeAreaView>
             <View style={{flexDirection:"row", alignSelf:"flex-start", margin:10, borderRadius:RFPercentage(1.5) ,justifyContent:"center" ,padding:RFPercentage(1), backgroundColor:"#999999"}}>
                 <Text style={styles.FavoritesButton}>Fovorites</Text>
                 <Icons name="angle-right" size={RFPercentage(3)} color={"black"}></Icons>

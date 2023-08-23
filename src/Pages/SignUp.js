@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Alert, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Alert, ScrollView, SafeAreaView } from 'react-native'
 import React from 'react'
 import {Formik} from "formik"
 import auth from  "@react-native-firebase/auth"
@@ -51,7 +51,7 @@ const SignUp = ({navigation}) => {
 
   return (
     <ScrollView style={{flex:1,backgroundColor:"#292929"}}>
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.title_container}> 
         <Text style={styles.title}>REGISTRATION PAGE</Text>
       </View>
@@ -67,7 +67,7 @@ const SignUp = ({navigation}) => {
           )}
         </Formik>
       </View>  
-    </View>
+    </SafeAreaView>
     </ScrollView>
   )
 }

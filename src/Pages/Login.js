@@ -1,4 +1,4 @@
-import { View, Text, Alert, StyleSheet,ScrollView ,Image, TouchableOpacity} from 'react-native'
+import { View, Text, Alert, StyleSheet,ScrollView ,Image, TouchableOpacity,SafeAreaView} from 'react-native'
 import React from 'react'
 import {Formik} from 'formik';
 import auth from '@react-native-firebase/auth';
@@ -42,7 +42,7 @@ const Login = ({navigation}) => {
 
   return (
     <ScrollView style={{flex:1, backgroundColor:"#292929"}}>
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image style={styles.Image} source={require("../Assest/pngwing.com.png")}></Image>
       <Formik initialValues={InitialValues} onSubmit={Login}>
       {({values, handleChange, handleSubmit}) => (  
@@ -59,7 +59,7 @@ const Login = ({navigation}) => {
           <Text  style={styles.signUpText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
     </ScrollView>
   )
 }
