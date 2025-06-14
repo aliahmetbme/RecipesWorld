@@ -7,18 +7,16 @@
 <table>
   <tr>
     <td>
-      <img src="https://github.com/aliahmetbme/RecipesWorld/blob/main/Simulator%20Screenshot%20-%20NEWIphone%20-%202023-08-23%20at%2010.59.47.png" alt="ios UI" width="200" height="400">
+      <img src="https://github.com/aliahmetbme/RecipesWorld/blob/main/Simulator%20Screenshot%20-%20NEWIphone%20-%202023-08-23%20at%2010.59.47.png" alt="ios UI" width="250" height="500">
     </td>
     <td>
-      <img src="https://github.com/aliahmetbme/RecipesWorld/blob/main/Simulator%20Screenshot%20-%20NEWIphone%20-%202023-08-23%20at%2010.59.56.png" alt="ios UI" width="200" height="400">
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/aliahmetbme/RecipesWorld/blob/main/Simulator%20Screenshot%20-%20NEWIphone%20-%202023-08-23%20at%2011.02.07.png" alt="ios UI" width="200" height="400">
+      <img src="https://github.com/aliahmetbme/RecipesWorld/blob/main/Simulator%20Screenshot%20-%20NEWIphone%20-%202023-08-23%20at%2010.59.56.png" alt="ios UI" width="250" height="500">
     </td>
     <td>
-      <img src="https://github.com/aliahmetbme/RecipesWorld/blob/main/Simulator%20Screenshot%20-%20NEWIphone%20-%202023-08-23%20at%2011.03.12.png" alt="ios UI" width="200" height="400">
+      <img src="https://github.com/aliahmetbme/RecipesWorld/blob/main/Simulator%20Screenshot%20-%20NEWIphone%20-%202023-08-23%20at%2011.02.07.png" alt="ios UI" width="250" height="500">
+    </td>
+    <td>
+      <img src="https://github.com/aliahmetbme/RecipesWorld/blob/main/Simulator%20Screenshot%20-%20NEWIphone%20-%202023-08-23%20at%2011.03.12.png" alt="ios UI" width="250" height="500">
     </td>
   </tr>
 </table>
