@@ -3,9 +3,6 @@
 
 ---
 ## UI 
-![Adsız tasarım (1)](https://github.com/aliahmetbme/RecipesWorld/blob/main/Ads%C4%B1z%20tasar%C4%B1m%20(1).png)
-
-![Adsız tasarım](https://github.com/aliahmetbme/RecipesWorld/blob/main/1690819074396.jpeg)
 
 <table>
   <tr>
